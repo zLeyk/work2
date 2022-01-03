@@ -17,4 +17,30 @@ public class StudentServiceImpl implements StudentService{
     public List<Student> getAllStudent() {
         return studentMapper.getAllStudent();
     }
+
+    @Override
+    public void AddStudent(Student student) {
+        studentMapper.AddStudent(student);
+    }
+
+    @Override
+    public void UpdateStudent(Student student) {
+        studentMapper.UpdateStudent(student);
+    }
+
+    @Override
+    public void DelStudent(String ID) {
+        studentMapper.DelStudent(ID);
+
+    }
+
+    @Override
+    public List<Student> getStudentById(String ID) {
+        return studentMapper.getStudentById(ID);
+    }
+
+    @Override
+    public List<Student> getStudentByStudentId(String ID) {
+        return studentMapper.getStudentByStudentId(ID);
+    }
 }

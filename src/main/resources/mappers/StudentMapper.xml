@@ -2,6 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.student.Mapper.StudentMapper">
     <select id="getAllStudent" resultType="com.example.student.Bean.Student">
-        select  StudentID, Gender,Education,Major,PoliticalStatus,ResearchDirection,EmploymentIntentionRegion,EmploymentIntentionUnit from student
+        select  ID,StudentID, Gender,Education,Major,PoliticalStatus,ResearchDirection,EmploymentIntentionRegion,EmploymentIntentionUnit,InternshipPlan,
+        EmploymentType,EmploymentUnit,location from student
     </select>
+
+    <insert id="AddStudent" parameterType="com.example.student.Bean.Student">
+        insert into student (StudentID,Gender,Education,Major,PoliticalStatus,ResearchDirection,EmploymentIntentionRegion,EmploymentIntentionUnit,
+        InternshipPlan,EmploymentType,EmploymentUnit,location) value (#{StudentID},#{Gender},#{Education},#{Major},#{PoliticalStatus},#{ResearchDirection},#{EmploymentIntentionRegion},
+        #{EmploymentIntentionUnit},#{InternshipPlan},#{EmploymentType},#{EmploymentUnit},#{location});
+    </insert>
+    
+    <update id="UpdateStudent" parameterType="com.example.student.Bean.Student">
+        update student set StudentID=#{StudentID},Gender=#{Gender},Education=#{Education},Major=#{Major},PoliticalStatus=#{PoliticalStatus},ResearchDirection=#{ResearchDirection}
+        ,EmploymentIntentionRegion=#{EmploymentIntentionRegion},EmploymentIntentionUnit=#{EmploymentIntentionUnit},
+        InternshipPlan=#{InternshipPlan},EmploymentType=#{EmploymentType},EmploymentUnit=#{EmploymentUnit},location=#{location} where ID=#{ID}
+    </update>
+
+    <delete id="DelStudent" parameterType="String">
+        delete from student where ID = #{ID}
+    </delete>
+
+    <select id="getStudentById" parameterType="String" resultType="com.example.student.Bean.Student">
+        select * from student where id =#{ID}
+    </select>
+    <select id="getStudentByStudentId" parameterType="String" resultType="com.example.student.Bean.Student">
+        select * from student where StudentID like CONCAT(CONCAT('%', #{ID}), '%')
+    </select>
+
+
 </mapper>

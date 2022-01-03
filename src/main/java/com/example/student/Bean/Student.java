@@ -1,6 +1,7 @@
 package com.example.student.Bean;
 
 public class Student {
+    private String ID;
     private String StudentID;
     private String Gender;
     private String Education;
@@ -9,8 +10,13 @@ public class Student {
     private String ResearchDirection;
     private String EmploymentIntentionRegion;
     private String EmploymentIntentionUnit;
+    private String InternshipPlan;
+    private String EmploymentType;
+    private String EmploymentUnit;
+    private String location;
 
-    public Student(String studentID, String gender, String education, String major, String politicalStatus, String researchDirection, String employmentIntentionRegion, String employmentIntentionUnit) {
+    public Student(String ID, String studentID, String gender, String education, String major, String politicalStatus, String researchDirection, String employmentIntentionRegion, String employmentIntentionUnit, String internshipPlan, String employmentType, String employmentUnit, String location) {
+        this.ID = ID;
         StudentID = studentID;
         Gender = gender;
         Education = education;
@@ -19,6 +25,25 @@ public class Student {
         ResearchDirection = researchDirection;
         EmploymentIntentionRegion = employmentIntentionRegion;
         EmploymentIntentionUnit = employmentIntentionUnit;
+        InternshipPlan = internshipPlan;
+        EmploymentType = employmentType;
+        EmploymentUnit = employmentUnit;
+        this.location = location;
+    }
+
+    public Student(String studentID, String gender, String education, String major, String politicalStatus, String researchDirection, String employmentIntentionRegion, String employmentIntentionUnit, String internshipPlan, String employmentType, String employmentUnit, String location) {
+        StudentID = studentID;
+        Gender = gender;
+        Education = education;
+        Major = major;
+        PoliticalStatus = politicalStatus;
+        ResearchDirection = researchDirection;
+        EmploymentIntentionRegion = employmentIntentionRegion;
+        EmploymentIntentionUnit = employmentIntentionUnit;
+        InternshipPlan = internshipPlan;
+        EmploymentType = employmentType;
+        EmploymentUnit = employmentUnit;
+        this.location = location;
     }
 
     public String getStudentID() {
@@ -85,10 +110,51 @@ public class Student {
         EmploymentIntentionUnit = employmentIntentionUnit;
     }
 
+    public String getInternshipPlan() {
+        return InternshipPlan;
+    }
+
+    public void setInternshipPlan(String internshipPlan) {
+        InternshipPlan = internshipPlan;
+    }
+
+    public String getEmploymentType() {
+        return EmploymentType;
+    }
+
+    public void setEmploymentType(String employmentType) {
+        EmploymentType = employmentType;
+    }
+
+    public String getEmploymentUnit() {
+        return EmploymentUnit;
+    }
+
+    public void setEmploymentUnit(String employmentUnit) {
+        EmploymentUnit = employmentUnit;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
-                "StudentID='" + StudentID + '\'' +
+                "ID='" + ID + '\'' +
+                ", StudentID='" + StudentID + '\'' +
                 ", Gender='" + Gender + '\'' +
                 ", Education='" + Education + '\'' +
                 ", Major='" + Major + '\'' +
@@ -96,6 +162,10 @@ public class Student {
                 ", ResearchDirection='" + ResearchDirection + '\'' +
                 ", EmploymentIntentionRegion='" + EmploymentIntentionRegion + '\'' +
                 ", EmploymentIntentionUnit='" + EmploymentIntentionUnit + '\'' +
+                ", InternshipPlan='" + InternshipPlan + '\'' +
+                ", EmploymentType='" + EmploymentType + '\'' +
+                ", EmploymentUnit='" + EmploymentUnit + '\'' +
+                ", location='" + location + '\'' +
                 '}';
     }
 }
